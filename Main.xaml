@@ -380,53 +380,60 @@ ToDictionary(
               <av:PointCollection x:Key="ConnectorLocation">270,351.59999999999997 270,401.59999999999997</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Data Management" sap:VirtualizedContainerService.HintSize="985.5999999999999,3446.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Data Management" sap:VirtualizedContainerService.HintSize="947.2,2752.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Sequence - Build Extracted Data Table" sap:VirtualizedContainerService.HintSize="923.2,80" sap2010:WorkflowViewState.IdRef="Sequence_9">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:BuildDataTable DataTable="[dt_RawData]" DisplayName="Build Data Table - dt_RawData" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Symbol&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ChangePrc&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;MarketCap&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Currency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;EarningsEventDate&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;URL&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ExtractionStatus&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ErrorMessage&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-            </Sequence>
-            <Sequence DisplayName="Sequence - Extract Data" sap:VirtualizedContainerService.HintSize="923.2,3214.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence DisplayName="Sequence - Build Extracted Data Table" sap:VirtualizedContainerService.HintSize="884.8,172" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="860.8,3102.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lst_str_Url]">
+              <ui:BuildDataTable DataTable="[dt_RawData]" DisplayName="Build Data Table - dt_RawData" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Symbol&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ChangePrc&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;MarketCap&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Currency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;EarningsEventDate&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;URL&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ExtractionStatus&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ErrorMessage&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:BuildDataTable>
+            </Sequence>
+            <Sequence DisplayName="Sequence - Extract Data" sap:VirtualizedContainerService.HintSize="884.8,2428.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="822.4,2316.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lst_str_Url]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:String" Name="URL" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="827.2,2914.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="788.8,2128.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome" sap:VirtualizedContainerService.HintSize="784,2824.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" Version="V2" WindowResize="Maximize">
+                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome" sap:VirtualizedContainerService.HintSize="745.6,2039.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" Version="V2" WindowResize="Maximize">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="750.4,2608" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="712,1822.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Sequence - Data Extraction from Tables" sap:VirtualizedContainerService.HintSize="688,380" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <Sequence DisplayName="Sequence - Data Extraction from Tables" sap:VirtualizedContainerService.HintSize="649.6,380" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="dt_Parsed" />
                                   <Variable x:TypeArguments="sd:DataTable" Name="dt_UrlTableExtraction" />
@@ -641,171 +648,255 @@ ToDictionary(
                                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,144" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Merged Extracted DT with Raw DT&quot;]" />
                                 </Sequence>
                               </Sequence>
-                              <ui:RemoveDuplicateRows OutputDataTable="{x:Null}" DataTable="[dt_RawData]" DisplayName="Remove Duplicate Rows" sap:VirtualizedContainerService.HintSize="688,80.8" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_2" />
-                              <Sequence DisplayName="Sequence - Data Extraction from Stock Page" sap:VirtualizedContainerService.HintSize="688,1647.2" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                              <ui:RemoveDuplicateRows OutputDataTable="{x:Null}" DataTable="[dt_RawData]" DisplayName="Remove Duplicate Rows" sap:VirtualizedContainerService.HintSize="649.6,80.8" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_2" />
+                              <Sequence DisplayName="Sequence - Data Extraction from Stock Page" sap:VirtualizedContainerService.HintSize="649.6,861.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_RawData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="625.6,1532" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_RawData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="587.2,746.4" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                                   <ui:ForEachRow.Body>
                                     <ActivityAction x:TypeArguments="sd:DataRow">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,1344" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,558.4" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="548.8,82.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="[CurrentRow(&quot;URL&quot;).ToString]" Version="V3" />
-                                        <Sequence DisplayName="Sequence - Extract Currency" sap:VirtualizedContainerService.HintSize="548.8,80" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                                          <Sequence.Variables>
-                                            <Variable x:TypeArguments="x:String" Name="str_RawCurrencyLine" />
-                                          </Sequence.Variables>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <uix:NGetText DisplayName="Get Text 'Currency Line'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_RawCurrencyLine]" Version="V3">
-                                            <uix:NGetText.Target>
-                                              <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="a5fbc566-9408-4fe1-ba9f-4a46836db4d6" CvTextArea="237, 340, 235, 17" CvType="AnyWordGroup" DesignTimeRectangle="239, 336, 1211, 30" DesignTimeScaleFactor="1.25" FriendlyName="'NasdaqGS -'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' /&gt;" Guid="85a340c5-3ac6-49b7-91f1-3874bd9dd9ec" ImageBase64="" InformativeScreenshot="d1778988037dcf5d75986acf62d86592.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
-                                                <uix:TargetAnchorable.Anchors>
-                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                                    <uix:Target CVScreenId="91663a62-8991-40f8-a5f2-cef6f1231cc1" CvTextArea="41, 339, 80, 21" CvTextArgument="Summary" CvType="Text" DesignTimeRectangle="44, 336, 77, 26" ElementType="Text" FriendlyName="'Summary'" FullSelectorArgument="&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' type='' class='ellipsis yf-1boupp5' check:text='Summary' /&gt;" SearchSteps="Selector, FuzzySelector" />
-                                                  </scg:List>
-                                                </uix:TargetAnchorable.Anchors>
-                                              </uix:TargetAnchorable>
-                                            </uix:NGetText.Target>
-                                          </uix:NGetText>
-                                          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
-                                            <Assign.To>
-                                              <OutArgument x:TypeArguments="x:Object">[CurrentRow("Currency")]</OutArgument>
-                                            </Assign.To>
-                                            <Assign.Value>
-                                              <InArgument x:TypeArguments="x:String">[str_RawCurrencyLine.Split("•"c).Last().Trim()]</InArgument>
-                                            </Assign.Value>
-                                          </Assign>
-                                        </Sequence>
-                                        <Sequence DisplayName="Sequence - Extract Earnings Date" sap:VirtualizedContainerService.HintSize="548.8,1012" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                                          <Sequence.Variables>
-                                            <Variable x:TypeArguments="x:String" Name="str_EarningsEventDate" />
-                                          </Sequence.Variables>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="486.4,779.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <TryCatch.Try>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="449.6,548" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="387.2,238.4" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
-                                                  <uix:NMouseScroll.SearchedElement>
-                                                    <uix:SearchedElement>
-                                                      <uix:SearchedElement.Target>
-                                                        <uix:TargetAnchorable BrowserURL="https://finance.yahoo.com/quote/PSLV/" DesignTimeRectangle="239, 922, 1211, 150" DesignTimeScaleFactor="1.25" ElementType="List" FriendlyName="'UL'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='UL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='UL' type='' class='yf-6myrf1' aaname='' /&gt;" Guid="7cd3132f-8740-4645-b075-cf357fe562d3" InformativeScreenshot="db39869afb4ffab8ab390fa79e531e71.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
-                                                          <uix:TargetAnchorable.Anchors>
-                                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                                              <uix:Target CVScreenId="4ab9a1d9-2e23-4bb3-b855-7360c98fd90d" CvTextArea="42, 404, 78, 20" CvTextArgument="Summary" CvType="Text" DesignTimeRectangle="44, 336, 77, 26" ElementType="Text" FriendlyName="'Summary'" FullSelectorArgument="&lt;webctrl css-selector='body' id='atomic' tag='BODY' /&gt;&lt;webctrl aria-role='none' parentid='nimbus-app' tag='LI' idx='1' /&gt;&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='atomic' tag='BODY' /&gt;&lt;webctrl aria-role='none' parentid='nimbus-app' tag='LI' /&gt;&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' type='' class='ellipsis yf-1boupp5' check:text='Summary' /&gt;" SearchSteps="Selector, FuzzySelector" />
-                                                            </scg:List>
-                                                          </uix:TargetAnchorable.Anchors>
-                                                        </uix:TargetAnchorable>
-                                                      </uix:SearchedElement.Target>
-                                                      <uix:SearchedElement.Timeout>
-                                                        <InArgument x:TypeArguments="x:Double" />
-                                                      </uix:SearchedElement.Timeout>
-                                                    </uix:SearchedElement>
-                                                  </uix:NMouseScroll.SearchedElement>
-                                                </uix:NMouseScroll>
-                                                <uix:NGetText DisplayName="Get Text 'Earnings Date (est.)'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_EarningsEventDate]" Version="V3">
-                                                  <uix:NGetText.Target>
-                                                    <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="ddf37ea1-c80d-43aa-b033-b386056c636e" CvTextArea="1355, 929, 94, 15" CvType="AnyWordGroup" DesignTimeRectangle="1359, 764, 91, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Jan 28, 2026'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' idx='88' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' class='value yf-6myrf1' /&gt;" Guid="ebd350b5-f2f9-409b-882d-1324da0ddb11" ImageBase64="" InformativeScreenshot="b83a72f61179019fbab984756fc5f104.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' idx='2' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
-                                                      <uix:TargetAnchorable.Anchors>
-                                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                                          <uix:Target CVScreenId="427ca7e0-525d-4612-9b18-eb9b6532c2dd" CvTextArea="1176, 766, 134, 17" CvTextArgument="Earnings Date*" CvType="Text" DesignTimeRectangle="1177, 764, 132, 24" ElementType="Text" FriendlyName="'Earnings Date (est.)'" FullSelectorArgument="&lt;webctrl aaname='Earnings Date* ' parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Earnings Date* ' parentid='main-content-wrapper' tag='SPAN' type='' class='label yf-6myrf1' check:text='Earnings Date*' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
-                                                        </scg:List>
-                                                      </uix:TargetAnchorable.Anchors>
-                                                    </uix:TargetAnchorable>
-                                                  </uix:NGetText.Target>
-                                                </uix:NGetText>
-                                              </Sequence>
-                                            </TryCatch.Try>
-                                            <TryCatch.Catches>
-                                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="452.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                        <If Condition="[String.IsNullOrEmpty(CurrentRow(&quot;ExtractionStatus&quot;).ToString)]" DisplayName="If - ExtractionStatus is empty" sap:VirtualizedContainerService.HintSize="510.4,468.8" sap2010:WorkflowViewState.IdRef="If_4">
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="338.4,114.4" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <TryCatch DisplayName="Try Catch - Extract data of current row" sap:VirtualizedContainerService.HintSize="295.2,24.8" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ActivityAction x:TypeArguments="s:Exception">
-                                                  <ActivityAction.Argument>
-                                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                                  </ActivityAction.Argument>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="496,258.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                <TryCatch.Try>
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="512,556" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,24.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Did not find UI element, Scroll down to it&quot;]">
+                                                    <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="449.6,82.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="[CurrentRow(&quot;URL&quot;).ToString]" Version="V3" />
+                                                    <Sequence DisplayName="Sequence - Extract Currency" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="x:String" Name="str_RawCurrencyLine" />
+                                                      </Sequence.Variables>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                    </ui:LogMessage>
-                                                    <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                      <uix:NGetText DisplayName="Get Text 'Currency Line'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_RawCurrencyLine]" Version="V3">
+                                                        <uix:NGetText.Target>
+                                                          <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="a5fbc566-9408-4fe1-ba9f-4a46836db4d6" CvTextArea="237, 340, 235, 17" CvType="AnyWordGroup" DesignTimeRectangle="239, 336, 1211, 30" DesignTimeScaleFactor="1.25" FriendlyName="'NasdaqGS -'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' /&gt;" Guid="85a340c5-3ac6-49b7-91f1-3874bd9dd9ec" ImageBase64="" InformativeScreenshot="d1778988037dcf5d75986acf62d86592.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                                                            <uix:TargetAnchorable.Anchors>
+                                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                                <uix:Target CVScreenId="91663a62-8991-40f8-a5f2-cef6f1231cc1" CvTextArea="41, 339, 80, 21" CvTextArgument="Summary" CvType="Text" DesignTimeRectangle="44, 336, 77, 26" ElementType="Text" FriendlyName="'Summary'" FullSelectorArgument="&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' type='' class='ellipsis yf-1boupp5' check:text='Summary' /&gt;" SearchSteps="Selector, FuzzySelector" />
+                                                              </scg:List>
+                                                            </uix:TargetAnchorable.Anchors>
+                                                          </uix:TargetAnchorable>
+                                                        </uix:NGetText.Target>
+                                                      </uix:NGetText>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:Object">[CurrentRow("Currency")]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:String">[str_RawCurrencyLine.Split("•"c).Last().Trim()]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                    <Sequence DisplayName="Sequence - Extract Earnings Date" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="x:String" Name="str_EarningsEventDate" />
+                                                      </Sequence.Variables>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="486.4,779.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <TryCatch.Try>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="449.6,548" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="387.2,238.4" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
+                                                              <uix:NMouseScroll.SearchedElement>
+                                                                <uix:SearchedElement>
+                                                                  <uix:SearchedElement.Target>
+                                                                    <uix:TargetAnchorable BrowserURL="https://finance.yahoo.com/quote/PSLV/" DesignTimeRectangle="239, 922, 1211, 150" DesignTimeScaleFactor="1.25" ElementType="List" FriendlyName="'UL'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='UL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='UL' type='' class='yf-6myrf1' aaname='' /&gt;" Guid="7cd3132f-8740-4645-b075-cf357fe562d3" InformativeScreenshot="db39869afb4ffab8ab390fa79e531e71.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                                                                      <uix:TargetAnchorable.Anchors>
+                                                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                                          <uix:Target CVScreenId="4ab9a1d9-2e23-4bb3-b855-7360c98fd90d" CvTextArea="42, 404, 78, 20" CvTextArgument="Summary" CvType="Text" DesignTimeRectangle="44, 336, 77, 26" ElementType="Text" FriendlyName="'Summary'" FullSelectorArgument="&lt;webctrl css-selector='body' id='atomic' tag='BODY' /&gt;&lt;webctrl aria-role='none' parentid='nimbus-app' tag='LI' idx='1' /&gt;&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='atomic' tag='BODY' /&gt;&lt;webctrl aria-role='none' parentid='nimbus-app' tag='LI' /&gt;&lt;webctrl aaname=' Summary   ' aria-role='menuitem' href='/quote/*/' parentid='nimbus-app' tag='A' /&gt;&lt;webctrl aaname='Summary' parentid='nimbus-app' tag='SPAN' type='' class='ellipsis yf-1boupp5' check:text='Summary' /&gt;" SearchSteps="Selector, FuzzySelector" />
+                                                                        </scg:List>
+                                                                      </uix:TargetAnchorable.Anchors>
+                                                                    </uix:TargetAnchorable>
+                                                                  </uix:SearchedElement.Target>
+                                                                  <uix:SearchedElement.Timeout>
+                                                                    <InArgument x:TypeArguments="x:Double" />
+                                                                  </uix:SearchedElement.Timeout>
+                                                                </uix:SearchedElement>
+                                                              </uix:NMouseScroll.SearchedElement>
+                                                            </uix:NMouseScroll>
+                                                            <uix:NGetText DisplayName="Get Text 'Earnings Date (est.)'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_EarningsEventDate]" Version="V3">
+                                                              <uix:NGetText.Target>
+                                                                <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="ddf37ea1-c80d-43aa-b033-b386056c636e" CvTextArea="1355, 929, 94, 15" CvType="AnyWordGroup" DesignTimeRectangle="1359, 764, 91, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Jan 28, 2026'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' idx='88' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' class='value yf-6myrf1' /&gt;" Guid="ebd350b5-f2f9-409b-882d-1324da0ddb11" ImageBase64="" InformativeScreenshot="b83a72f61179019fbab984756fc5f104.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' idx='2' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                                                                  <uix:TargetAnchorable.Anchors>
+                                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                                      <uix:Target CVScreenId="427ca7e0-525d-4612-9b18-eb9b6532c2dd" CvTextArea="1176, 766, 134, 17" CvTextArgument="Earnings Date*" CvType="Text" DesignTimeRectangle="1177, 764, 132, 24" ElementType="Text" FriendlyName="'Earnings Date (est.)'" FullSelectorArgument="&lt;webctrl aaname='Earnings Date* ' parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Earnings Date* ' parentid='main-content-wrapper' tag='SPAN' type='' class='label yf-6myrf1' check:text='Earnings Date*' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
+                                                                    </scg:List>
+                                                                  </uix:TargetAnchorable.Anchors>
+                                                                </uix:TargetAnchorable>
+                                                              </uix:NGetText.Target>
+                                                            </uix:NGetText>
+                                                          </Sequence>
+                                                        </TryCatch.Try>
+                                                        <TryCatch.Catches>
+                                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="452.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <ActivityAction x:TypeArguments="s:Exception">
+                                                              <ActivityAction.Argument>
+                                                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                              </ActivityAction.Argument>
+                                                              <Sequence sap:VirtualizedContainerService.HintSize="496,258.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,24.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Did not find UI element, Scroll down to it&quot;]">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                </ui:LogMessage>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[str_EarningsEventDate]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">
+                                                                      <Literal x:TypeArguments="x:String" Value="" />
+                                                                    </InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </ActivityAction>
+                                                          </Catch>
+                                                        </TryCatch.Catches>
+                                                      </TryCatch>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="486.4,80.8" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:Object">[CurrentRow("EarningsEventDate")]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:Object">[str_EarningsEventDate.Trim]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="449.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_11">
                                                       <Assign.To>
-                                                        <OutArgument x:TypeArguments="x:String">[str_EarningsEventDate]</OutArgument>
+                                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("ExtractionStatus")]</OutArgument>
                                                       </Assign.To>
                                                       <Assign.Value>
-                                                        <InArgument x:TypeArguments="x:String">
-                                                          <Literal x:TypeArguments="x:String" Value="" />
-                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="x:Object">["Success"]</InArgument>
                                                       </Assign.Value>
                                                     </Assign>
                                                   </Sequence>
-                                                </ActivityAction>
-                                              </Catch>
-                                            </TryCatch.Catches>
-                                          </TryCatch>
-                                          <Assign sap:VirtualizedContainerService.HintSize="486.4,80.8" sap2010:WorkflowViewState.IdRef="Assign_8">
-                                            <Assign.To>
-                                              <OutArgument x:TypeArguments="x:Object">[CurrentRow("EarningsEventDate")]</OutArgument>
-                                            </Assign.To>
-                                            <Assign.Value>
-                                              <InArgument x:TypeArguments="x:Object">[str_EarningsEventDate.Trim]</InArgument>
-                                            </Assign.Value>
-                                          </Assign>
-                                        </Sequence>
+                                                </TryCatch.Try>
+                                                <TryCatch.Catches>
+                                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="515.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ActivityAction x:TypeArguments="s:Exception">
+                                                      <ActivityAction.Argument>
+                                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                      </ActivityAction.Argument>
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="496,377.6" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,144" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Failed to extract data of &quot; + CurrentRow(&quot;Symbol&quot;).ToString]" />
+                                                        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Object">[CurrentRow("ExtractionStatus")]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Object">["Failure"]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ActivityAction>
+                                                  </Catch>
+                                                </TryCatch.Catches>
+                                              </TryCatch>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Object">[CurrentRow("ExtractionStatus")]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Object">["Failure"]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
                                       </Sequence>
                                     </ActivityAction>
                                   </ui:ForEachRow.Body>
                                 </ui:ForEachRow>
                               </Sequence>
-                              <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" OutputDataTable="{x:Null}" ColumnName="MarketCap" DataTable="[dt_RawData]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="688,80.8" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" SortOrder="Descending" />
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="688,144" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Building dt_RawData DT completed&quot;]" />
+                              <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" OutputDataTable="{x:Null}" ColumnName="MarketCap" DataTable="[dt_RawData]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="649.6,80.8" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" SortOrder="Descending" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="649.6,144" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Building dt_RawData DT completed&quot;]" />
                             </Sequence>
                           </ActivityAction>
                         </uix:NApplicationCard.Body>
