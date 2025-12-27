@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1103.2,701.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="680,701.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -123,6 +123,8 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap:VirtualizedContainerService.HintSize="633.6,636.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -135,6 +137,11 @@
       <Variable x:TypeArguments="x:Double" Name="dbl_TopMoversThresholdPercent" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_RawData" />
       <Variable x:TypeArguments="x:Int32" Name="int_ExtractLimitFromURL" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_TopMovers" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_UsdStocks" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_NonUsdStocks" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_HighestMarketCap" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_EarningsToday" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -146,9 +153,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID1">
+    <FlowStep x:Name="__ReferenceID2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">170,138.39999999999998</av:Point>
@@ -156,7 +163,7 @@
           <av:PointCollection x:Key="ConnectorLocation">270,221.59999999999997 270,268.4</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Sequence - Configuration" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <Sequence DisplayName="Configuration" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="str_RunID" />
           <Variable x:TypeArguments="s:DateTime" Name="DateTime_Today" />
@@ -308,7 +315,7 @@ ToDictionary(
                   <OutArgument x:TypeArguments="x:Int32">[int_ExtractLimitFromURL]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:Int32">[CInt(dic_str_obj_Config("ExtractLimit"))]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32">[CInt(dic_str_obj_Config("ExtractLimitFromURL"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg:List>
@@ -370,9 +377,10 @@ ToDictionary(
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">170,268.4</av:Point>
               <av:Size x:Key="ShapeSize">200,83.2</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">270,351.59999999999997 270,401.59999999999997</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Sequence - Data Management" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Data Management" sap:VirtualizedContainerService.HintSize="985.5999999999999,3446.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -387,38 +395,38 @@ ToDictionary(
               </sap:WorkflowViewStateService.ViewState>
               <ui:BuildDataTable DataTable="[dt_RawData]" DisplayName="Build Data Table - dt_RawData" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Symbol&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ChangePrc&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;MarketCap&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Currency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;EarningsEventDate&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;URL&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ExtractionStatus&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ErrorMessage&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
             </Sequence>
-            <Sequence DisplayName="Sequence - Extract Data" sap:VirtualizedContainerService.HintSize="923.2,3948" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence DisplayName="Sequence - Extract Data" sap:VirtualizedContainerService.HintSize="923.2,3214.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="860.8,3836" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lst_str_Url]">
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="860.8,3102.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lst_str_Url]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:String" Name="URL" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="827.2,3648" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="827.2,2914.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome" sap:VirtualizedContainerService.HintSize="784,3558.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" Version="V2" WindowResize="Maximize">
+                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome" sap:VirtualizedContainerService.HintSize="784,2824.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" Version="V2" WindowResize="Maximize">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="750.4,3341.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="750.4,2608" sap2010:WorkflowViewState.IdRef="Sequence_12">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Sequence - Data Extraction from Tables" sap:VirtualizedContainerService.HintSize="688,1234.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <Sequence DisplayName="Sequence - Data Extraction from Tables" sap:VirtualizedContainerService.HintSize="688,380" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="dt_Parsed" />
                                   <Variable x:TypeArguments="sd:DataTable" Name="dt_UrlTableExtraction" />
@@ -429,10 +437,10 @@ ToDictionary(
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <TryCatch DisplayName="Try Catch - Extracting data from URL" sap:VirtualizedContainerService.HintSize="486.4,719.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                <TryCatch DisplayName="Try Catch - Extracting data from URL" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
@@ -454,7 +462,7 @@ ToDictionary(
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </uix:NExtractData>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,144" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;successfully extracted data from URL: &quot; + URL]" />
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,144" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;successfully extracted &quot;+dt_UrlTableExtraction.RowCount.ToString+ &quot; Rows from URL: &quot; + URL]" />
                                     </Sequence>
                                   </TryCatch.Try>
                                   <TryCatch.Catches>
@@ -482,7 +490,7 @@ ToDictionary(
                                     </Catch>
                                   </TryCatch.Catches>
                                 </TryCatch>
-                                <Sequence DisplayName="Sequence - Parse Data Types" sap:VirtualizedContainerService.HintSize="486.4,240" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                <Sequence DisplayName="Sequence - Parse Data Types" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:Double" Name="dbl_Price" />
                                     <Variable x:TypeArguments="x:Double" Name="dbl_ChangePercent" />
@@ -490,12 +498,12 @@ ToDictionary(
                                   </Sequence.Variables>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:BuildDataTable DataTable="[dt_Parsed]" DisplayName="Build Data Table - dt_Parsed" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Symbol&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ChangePrc&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;MarketCap&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;URL&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-                                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_UrlTableExtraction]" DisplayName="For Each Row in Data Table - dt_UrlTableExtraction" sap:VirtualizedContainerService.HintSize="387.2,24.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                  <ui:BuildDataTable DataTable="[dt_Parsed]" DisplayName="Build Data Table - dt_Parsed" sap:VirtualizedContainerService.HintSize="526.4,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Symbol&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Price&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ChangePrc&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;MarketCap&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;URL&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+                                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_UrlTableExtraction]" DisplayName="For Each Row in Data Table - dt_UrlTableExtraction" sap:VirtualizedContainerService.HintSize="526.4,825.6" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                     <ui:ForEachRow.Body>
                                       <ActivityAction x:TypeArguments="sd:DataRow">
                                         <ActivityAction.Argument>
@@ -615,13 +623,13 @@ ToDictionary(
                                     </ui:ForEachRow.Body>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:ForEachRow>
                                 </Sequence>
-                                <Sequence sap2010:Annotation.AnnotationText="Add new extracted data to DT RawData" DisplayName="Sequence - Add to DT RawData" sap:VirtualizedContainerService.HintSize="486.4,80" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                <Sequence sap2010:Annotation.AnnotationText="Add new extracted data to DT RawData" DisplayName="Sequence - Add to DT RawData" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_23">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -664,7 +672,7 @@ ToDictionary(
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <uix:NGetText DisplayName="Get Text 'Summary'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_RawCurrencyLine]" Version="V3">
+                                          <uix:NGetText DisplayName="Get Text 'Currency Line'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_RawCurrencyLine]" Version="V3">
                                             <uix:NGetText.Target>
                                               <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="a5fbc566-9408-4fe1-ba9f-4a46836db4d6" CvTextArea="237, 340, 235, 17" CvType="AnyWordGroup" DesignTimeRectangle="239, 336, 1211, 30" DesignTimeScaleFactor="1.25" FriendlyName="'NasdaqGS -'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' /&gt;" Guid="85a340c5-3ac6-49b7-91f1-3874bd9dd9ec" ImageBase64="" InformativeScreenshot="d1778988037dcf5d75986acf62d86592.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
                                                 <uix:TargetAnchorable.Anchors>
@@ -706,9 +714,10 @@ ToDictionary(
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="333.6,238.39999999999998" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
+                                                <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="387.2,238.4" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
                                                   <uix:NMouseScroll.SearchedElement>
                                                     <uix:SearchedElement>
                                                       <uix:SearchedElement.Target>
@@ -726,12 +735,12 @@ ToDictionary(
                                                     </uix:SearchedElement>
                                                   </uix:NMouseScroll.SearchedElement>
                                                 </uix:NMouseScroll>
-                                                <uix:NGetText DisplayName="Get Text 'Earnings Date'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_EarningsEventDate]" Version="V3">
+                                                <uix:NGetText DisplayName="Get Text 'Earnings Date (est.)'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="96fd1ad0-edd2-4eb8-812f-0fdd527ddfc4" TextString="[str_EarningsEventDate]" Version="V3">
                                                   <uix:NGetText.Target>
-                                                    <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="ddf37ea1-c80d-43aa-b033-b386056c636e" CvTextArea="1355, 929, 94, 15" CvType="AnyWordGroup" DesignTimeRectangle="1357, 927, 93, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Feb 25, 2026'" FullSelectorArgument="&lt;webctrl aaname='* *, *' parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' class='value yf-6myrf1' /&gt;" Guid="ebd350b5-f2f9-409b-882d-1324da0ddb11" ImageBase64="" InformativeScreenshot="fae4af10b0f96114f4c37ac393951229.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                                                    <uix:TargetAnchorable BrowserURL="https://ca.finance.yahoo.com/quote/NVDA/" CVScreenId="ddf37ea1-c80d-43aa-b033-b386056c636e" CvTextArea="1355, 929, 94, 15" CvType="AnyWordGroup" DesignTimeRectangle="1359, 764, 91, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Jan 28, 2026'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' idx='88' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='SPAN' type='' class='value yf-6myrf1' /&gt;" Guid="ebd350b5-f2f9-409b-882d-1324da0ddb11" ImageBase64="" InformativeScreenshot="b83a72f61179019fbab984756fc5f104.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='* Stock Price, News, Quote &amp;amp; History - Yahoo Finance' idx='2' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                                                       <uix:TargetAnchorable.Anchors>
                                                         <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                                          <uix:Target CVScreenId="ddf37ea1-c80d-43aa-b033-b386056c636e" CvTextArea="1176, 929, 98, 18" CvTextArgument="Earnings Date" CvType="Text" DesignTimeRectangle="1177, 927, 95, 24" ElementType="Text" FriendlyName="'Earnings Date'" FullSelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='LI' idx='13' /&gt;&lt;webctrl aaname='Earnings Date ' parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-content-wrapper' tag='LI' /&gt;&lt;webctrl aaname='Earnings Date ' parentid='main-content-wrapper' tag='SPAN' type='' class='label yf-6myrf1' check:text='Earnings Date' /&gt;" SearchSteps="Selector, FuzzySelector" />
+                                                          <uix:Target CVScreenId="427ca7e0-525d-4612-9b18-eb9b6532c2dd" CvTextArea="1176, 766, 134, 17" CvTextArgument="Earnings Date*" CvType="Text" DesignTimeRectangle="1177, 764, 132, 24" ElementType="Text" FriendlyName="'Earnings Date (est.)'" FullSelectorArgument="&lt;webctrl aaname='Earnings Date* ' parentid='main-content-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Earnings Date* ' parentid='main-content-wrapper' tag='SPAN' type='' class='label yf-6myrf1' check:text='Earnings Date*' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
                                                         </scg:List>
                                                       </uix:TargetAnchorable.Anchors>
                                                     </uix:TargetAnchorable>
@@ -781,12 +790,12 @@ ToDictionary(
                                               </Catch>
                                             </TryCatch.Catches>
                                           </TryCatch>
-                                          <Assign sap:VirtualizedContainerService.HintSize="486.4,80.8" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                          <Assign sap:VirtualizedContainerService.HintSize="486.4,80.8" sap2010:WorkflowViewState.IdRef="Assign_8">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Object">[CurrentRow("EarningsEventDate")]</OutArgument>
                                             </Assign.To>
                                             <Assign.Value>
-                                              <InArgument x:TypeArguments="x:Object">[str_EarningsEventDate.Trim()]</InArgument>
+                                              <InArgument x:TypeArguments="x:Object">[str_EarningsEventDate.Trim]</InArgument>
                                             </Assign.Value>
                                           </Assign>
                                         </Sequence>
@@ -795,6 +804,7 @@ ToDictionary(
                                   </ui:ForEachRow.Body>
                                 </ui:ForEachRow>
                               </Sequence>
+                              <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" OutputDataTable="{x:Null}" ColumnName="MarketCap" DataTable="[dt_RawData]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="688,80.8" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" SortOrder="Descending" />
                               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="688,144" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Building dt_RawData DT completed&quot;]" />
                             </Sequence>
                           </ActivityAction>
@@ -815,9 +825,176 @@ ToDictionary(
               </ui:ForEach>
             </Sequence>
           </Sequence>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">170,401.59999999999997</av:Point>
+                  <av:Size x:Key="ShapeSize">200,83.2</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Data Analysis" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Sequence - Top Movers" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:FilterDataTable sap2010:Annotation.AnnotationText="ChangePrc &gt;= dbl_TopMoversThresholdPercent" DataTable="[dt_RawData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="387.2,193.6" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_TopMovers]" SelectColumnsMode="Remove">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="GTE">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["ChangePrc"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:Double">[dbl_TopMoversThresholdPercent]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:FilterDataTable>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created DT for Top Movers&quot;]" />
+                </Sequence>
+                <Sequence DisplayName="Sequence - USD Stocks" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:FilterDataTable sap2010:Annotation.AnnotationText="Currency = &quot;USD&quot;" DataTable="[dt_RawData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="387.2,193.6" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_UsdStocks]" SelectColumnsMode="Remove">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["Currency"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:String">["USD"]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:FilterDataTable>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created DT for USD Stocks&quot;]" />
+                </Sequence>
+                <Sequence DisplayName="Sequence - Non-USD Stocks" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:FilterDataTable sap2010:Annotation.AnnotationText="Currency != &quot;USD&quot;" DataTable="[dt_RawData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="387.2,193.6" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dt_NonUsdStocks]" SelectColumnsMode="Remove">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTEQ">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["Currency"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:String">["USD"]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:FilterDataTable>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created DT for Non-USD Stocks&quot;]" />
+                </Sequence>
+                <Sequence DisplayName="Sequence - Highest Market Cap" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="sd:DataTable">[dt_HighestMarketCap]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="sd:DataTable">[dt_RawData.AsEnumerable().Take(5).CopyToDataTable()]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created DT for Highest Market Cap&quot;]" />
+                </Sequence>
+                <Sequence DisplayName="Sequence - Earnings Today" sap:VirtualizedContainerService.HintSize="449.6,80" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:FilterDataTable sap2010:Annotation.AnnotationText="EarningsEventDate = datetime.Now" DataTable="[dt_RawData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="387.2,193.6" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dt_EarningsToday]" SelectColumnsMode="Remove">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["EarningsEventDate"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("MMM dd, yyyy", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:FilterDataTable>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Created DT for Earnings Today&quot;]" />
+                </Sequence>
+              </Sequence>
+            </FlowStep>
+          </FlowStep.Next>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
   </Flowchart>
 </Activity>
